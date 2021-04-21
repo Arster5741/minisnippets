@@ -1,4 +1,4 @@
-if(mp.puntos == undefined) return; //Si ya lo ha instanciado otro archivo; no hacerlo de nuevo, bugearía el _pool y el lastid.
+if(mp.puntos != undefined) return; //Si ya lo ha instanciado otro archivo; no hacerlo de nuevo, bugearía el _pool y el lastid.
 
 mp.puntos = { //Añadido objeto en mp.puntos con el contenido siguente
     _pool: [], //Añadida lista para almacenar los diferentes puntos para facilitar la búsqueda
