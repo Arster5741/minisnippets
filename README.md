@@ -16,10 +16,11 @@ Mi objetivo para este repositorio es ir añadiendo algunos snippets, relacionado
     
   ## Installation
     
-    Es necesario un IDE (Visual Studio code para JS y Visual Studio + Compilador.Net Core para C#). Tambien puede ser necesario para alguno de los códigos el uso de NPM (instalado por defecto junto node js).
+Es necesario un IDE (Visual Studio code para JS y Visual Studio + Compilador.Net Core para C#). Tambien puede ser necesario para alguno de los códigos el uso de NPM (instalado por defecto junto node js).
   ## Licencia
     
-    Sinceramente, el uso principal de los códigos de este repositorio es educativo, ya que probablemente cada uno pueda hacer mejores scripts a partir de esta base, o que se adapten al funcionamiento del GM en cuestión
+Sinceramente, el uso principal de los códigos de este repositorio es educativo, ya que probablemente cada uno pueda hacer mejores scripts a partir de esta base, o que se adapten al funcionamiento del GM en cuestión
     
-       [Puntos]: <https://github.com/Arster5741/minisnippets/tree/main/NODEJS_Puntos>
+    
+[Puntos]: <https://github.com/Arster5741/minisnippets/tree/main/NODEJS_Puntos>
     
