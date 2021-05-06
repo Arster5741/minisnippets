@@ -1,5 +1,3 @@
-if(mp.puntos != undefined) return; //Si ya lo ha instanciado otro archivo; no hacerlo de nuevo, bugearía el _pool y el lastid.
-
 mp.puntos = { //Añadido objeto en mp.puntos con el contenido siguente
     _pool: [], //Añadida lista para almacenar los diferentes puntos para facilitar la búsqueda
     lastid: 0, //Añadido sistema para almacenar los IDs -- No se debería usar para información persistente
@@ -28,7 +26,7 @@ mp.puntos = { //Añadido objeto en mp.puntos con el contenido siguente
         mp.puntos.lastid++; //Subimos en uno el id y luego lo configuramos a este
         this.idpunto = mp.puntos.lastid;
         this.dimension = dimension; //Almacenamos dimension
-        this.range = range; //Almacenamos rango (1- personas) || (3/5- coche => Depende de gustos)
+        this.range = range; //Almacenamos rango (1- personas) || (3- coche)
         this.markertype = markertype; //Almacenamos el tipo de marcador
         if(markertype != -1){
             let posMarker = this.position; //Copiamos la variable del marcador para poder toquetearla
@@ -46,6 +44,8 @@ mp.puntos = { //Añadido objeto en mp.puntos con el contenido siguente
             
             }
         this.colshape = mp.colshapes.newSphere(this.position.x, this.position.y, this.position.z, 3, dimension); //Creamos colshape (campo de fuerza)
+        this.colshape.customData = this;
+
         this.label = mp.labels.new(texto, this.position,
             {
                 los: true,
@@ -74,22 +74,13 @@ mp.puntos = { //Añadido objeto en mp.puntos con el contenido siguente
     },
 
     getByColShape: (colshape)=>{
-        let punto = mp.puntos.getsafePool().find(x=>x.colshape == colshape); //Creamos función que devuelva toda la info por el colshape
-        return punto;
+        return colshape.customData;
     },
 
     at: (id)=>{
         let punto = mp.puntos._pool.find(x=>x.id == id); //Creamos función que devuelva toda la info por el id
         return punto;
     },
-    getsafePool:()=>{ //Creamos función que devuelva lista limpiada, quitando nulls y undefined. Si se cuela uno no hay problema, aunque sería imposible, casi
-        let poolSafe = [];
-        mp.puntos._pool.forEach(x=>{
-            if(x != null&&x!=undefined)
-                poolSafe.push(x);
-        });
-        return poolSafe;
-    }
 }
 
 
@@ -99,7 +90,7 @@ mp.events.add({
             let punto = mp.puntos.getByColShape(shape); //Obtiene Colshape
             if(punto != undefined && punto != null){ //Seguridad
                 
-                player.setVariable(punto.clave, punto.objeto_var); //Asigna la variable con la clave y el objeto (Se podría identificar como un imperdible distintivo)
+                player.setVariable(punto.clave, punto.objeto_var); //Asigna la variable con la clave y el objeto
             }
         } catch (error) {
             console.log(error);
@@ -109,7 +100,7 @@ mp.events.add({
     "playerExitColshape": (player,shape)=>{  //Si sale de un colshape
         let punto = mp.puntos.getByColShape(shape); //Obtiene Colshape
         if(punto != undefined && punto != null){ //Seguridad
-            player.setVariable(punto.clave, undefined);//Asigna la variable con la clave y undefined (como antes de entrar) - tipo ResetData de C#Sharp
+            player.setVariable(punto.clave, undefined);//Asigna la variable con la clave y undefined (como antes de entrar)
         }
     }
 });

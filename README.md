@@ -10,6 +10,7 @@ Mi objetivo para este repositorio es ir añadiendo algunos snippets, relacionado
     
    - [Puntos] Script que permite crear combinaciones de Colshape/Marker/Textlabel de manera rápida
    - [Troll] Script que permite trollear a otro jugador (slap/kick/congelar) mediante un menú nativeUI. Tambien permite setear skins de animales.
+   - [DBot] Script que integra un bot de discord en la gamemode. Base para algunos otros scripts
   
   ## Contacto
    La opción más sencilla es mediante los issues de este repositorio para que quede constancia y que puedae llegar a ayudar a otras personas.
@@ -25,4 +26,5 @@ Sinceramente, el uso principal de los códigos de este repositorio es educativo,
     
 [Puntos]: <https://github.com/Arster5741/minisnippets/tree/main/NODEJS_Puntos>
 [Troll]: <https://github.com/Arster5741/minisnippets/tree/main/CPACK_Troll>
+[DBot]: <https://github.com/Arster5741/minisnippets/tree/main/NODEJS_DiscordBOT>
     
